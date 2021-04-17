@@ -43,13 +43,31 @@ const server = http.createServer(function(request, response){
         const res = fs.readFileSync('public/2.js')
         response.write(res)
         response.end()
-    } else if (path === '/style.css') {
+    } else if (path === '/3.html') {
+        response.statusCode = 200
+        response.setHeader('Content-Type', 'text/javascript;charset=utf-8')
+        const res = fs.readFileSync('public/3.html')
+        response.write(res)
+        response.end()
+    }else if (path === '/style.css') {
         response.statusCode = 200
         response.setHeader('Content-Type', 'text/css;charset=utf-8')
         const res = fs.readFileSync('public/style.css')
         response.write(res)
         response.end()
-    } else if(path === '/x'){
+    } else if (path === '/4.xml') {
+        response.statusCode = 200
+        response.setHeader('Content-Type', 'text/xml;charset=utf-8')
+        const res = fs.readFileSync('public/4.xml')
+        response.write(res)
+        response.end()
+    }  else if (path === '/5.json') {
+        response.statusCode = 200
+        response.setHeader('Content-Type', 'application/json;charset=utf-8')
+        const res = fs.readFileSync('public/5.json')
+        response.write(res)
+        response.end()
+    }  else if(path === '/x'){
         response.statusCode = 200
         response.setHeader('Content-Type', 'text/css;charset=utf-8')
         response.write(`body{color: red;}`)
