@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+FILE=$1
+MESSAGE=$(cat "$FILE")
+OCT=${MESSAGE: 0: 3}
+echo "$OTC"
+echo "OCT $MESSAGE" > "$FILE"
