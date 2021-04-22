@@ -4,5 +4,5 @@
 FILE=$1
 MESSAGE=$(cat "$FILE")
 OCT=${MESSAGE: 0: 3}
-echo "$OTC"
+echo $OCT
 echo "OCT $MESSAGE" > "$FILE"
