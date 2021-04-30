@@ -1,9 +1,9 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
-reg="^(\b(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)\b){1}([(]\S+[)])?: [\w]+.*$"
+reg="^\b\(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert\)\b{1}\([(]\S+[)]\)?: [\w]+.*\(\n\n[\w]+.*\)?\(\n\n\bBREAKING CHANGE\b: [\w]+.*\)?\(\n\n[\w]+.*\)?\n?$"
 FILE=$1
 MESSAGE=$(cat "$FILE")
-echo "message $MESSAGE"
+echo "$MESSAGE"
 if [[ $MESSAGE =~ $reg ]];
   then
     echo "OCT $MESSAGE" > "$FILE"
