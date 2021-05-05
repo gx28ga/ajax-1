@@ -3,3 +3,8 @@
 
 exec < /dev/tty
 git cz --hook || true
+FILE=$1
+MESSAGE=$(cat "$FILE")
+OCT=${MESSAGE: 0: 3}
+echo $OCT
+echo "OCT $MESSAGE" > "$FILE"
