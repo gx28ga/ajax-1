@@ -3,3 +3,6 @@
 
 exec < /dev/tty
 git cz --hook || true
+FILE=$1
+MESSAGE=$(cat "$FILE")
+echo "$MESSAGE" > "$FILE"
