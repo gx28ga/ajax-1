@@ -1,7 +1,8 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-echo "commit-msg $1"
+cat $1
+
 yarn commitlint --edit $1
 #if (( $? == 1 ))
 #then
