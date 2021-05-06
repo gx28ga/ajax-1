@@ -1,6 +1,4 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-reg="^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(.*)?: "
-FILE=$1
-MESSAGE=$(cat "$FILE")
-echo "msg $MESSAGE"
+npx --no-install commitlint --edit
+commit=$(cat $1)
+echo "OCT $commit" > "$1"
