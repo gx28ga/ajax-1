@@ -1,11 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
-
-cat $1
-
 yarn commitlint --edit $1
-#if (( $? == 1 ))
-#then
-commit=$(cat $1)
-echo "OCT $commit" > "$1"
-#fi
+cat ""

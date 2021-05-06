@@ -1,6 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
-
-echo "prepare-commit-msg $?"
-
-
+TEXT=$(cat "$1" | sed '/^#.*/d')
+echo $TEXT
