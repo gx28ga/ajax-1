@@ -2,10 +2,9 @@
 . "$(dirname "$0")/_/husky.sh"
 
 TEXT=$(cat "$1" | sed '/^#.*/d')
-echo "prepare-commit-msg $TEXT"
 if [ -z $TEXT ]
   then
-    echo 'msg is empty'
+    echo 'commit msg is empty, please use git cz'
     exit 2
     fi
 yarn commitlint --edit $1
