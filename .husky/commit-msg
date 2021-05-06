@@ -1,4 +1,13 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
+
+TEXT=$(cat "$1" | sed '/^#.*/d')
+echo "prepare-commit-msg $TEXT"
+if [ -z $TEXT ]
+  then
+    echo 'msg is empty'
+    exit 2
+    fi
 yarn commitlint --edit $1
-cat ""
+commit=$(cat $1)
+echo "OCT $commit" > "$1"
