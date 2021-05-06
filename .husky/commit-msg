@@ -3,6 +3,7 @@
 
 echo "commit-msg $?"
 yarn commitlint --edit $1
+echo "commit-msg $?"
 #if (( $? == 1 ))
 #then
 #commit=$(cat $1)
