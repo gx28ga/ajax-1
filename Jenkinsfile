@@ -5,7 +5,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building $BRANCH_NAME"
-                pwd
+                echo "$WORKSPACE"
+                sh 'pwd'
+                sh 'cat package.json'
             }
         }
         stage('Test') {
