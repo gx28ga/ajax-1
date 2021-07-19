@@ -15,7 +15,8 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'yarn build'
+                echo "Building $BRANCH_NAME"
+                echo "$(pwd)"
             }
         }
         stage('deploy') {
