@@ -8,7 +8,7 @@ pipeline {
     agent any
 
     stages {
-        state('install') {
+        stage('install') {
             steps {
                 sh 'yarn'
             }
