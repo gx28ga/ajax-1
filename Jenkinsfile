@@ -11,12 +11,13 @@ pipeline {
         stage('install') {
             steps {
                 sh 'yarn'
+                echo "$WORKSPACE"
             }
         }
         stage('build') {
             steps {
                 echo "Building $BRANCH_NAME"
-                echo "$(pwd)"
+
             }
         }
         stage('deploy') {
