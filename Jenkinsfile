@@ -8,6 +8,7 @@ pipeline {
                 echo "$WORKSPACE"
                 sh 'pwd'
                 sh 'cat package.json'
+                sh 'yarn'
             }
         }
         stage('Test') {
