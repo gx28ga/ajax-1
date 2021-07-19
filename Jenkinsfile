@@ -1,24 +1,27 @@
+def remote = [:]
+remote.name = 'test'
+remote.host = '172.18.67.7'
+remote.user = 'root'
+remote.password = 'cmcc&4321'
+remote.allowAnyHosts = true
 pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        state('install') {
             steps {
-                echo "Building $BRANCH_NAME"
-                echo "$WORKSPACE"
-                sh 'pwd'
-                sh 'cat package.json'
                 sh 'yarn'
             }
         }
-        stage('Test') {
+        stage('build') {
             steps {
-                echo "Testing $BRANCH_NAME"
+                sh 'yarn build'
             }
         }
-        stage('Deploy') {
+        stage('deploy') {
             steps {
-                echo "Deploying $BRANCH_NAME"
+                writeFile file: 'abc.sh', text: 'ls -lrt'
+                sshPut remote: remote, from: 'abc.sh', into: '/data/web'
             }
         }
     }
