@@ -22,7 +22,8 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                writeFile file: 'abc.sh', text: 'ls -lrt'
+                writeFile file: 'abc.sh', text: 'ls'
+                sshRemove remote: remote, path: "/data/web/abc.sh"
                 sshPut remote: remote, from: 'abc.sh', into: '/data/web'
             }
         }
