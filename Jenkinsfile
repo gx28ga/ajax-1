@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building $BRANCH_NAME"
+                echo "$(pwd)"
             }
         }
         stage('Test') {
