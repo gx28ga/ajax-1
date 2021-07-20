@@ -4,23 +4,15 @@ remote.host = '172.18.67.7'
 remote.user = 'root'
 remote.password = 'cmcc&4321'
 remote.allowAnyHosts = true
-def result
-def version = "1.2"
+def project_dir
 switch(BRANCH_NAME) {
-  case "develop":
-    result = "dev"
+  case "dev":
+    project_dir = "dev_dir"
     break
-  case ["master", "support/${version}".toString()]:
-    result = "list"
-    break
-  case "support/${version}":
-    result = "sup"
-    break
-  default:
-    result = "def"
+  case "master"
+    project_dir = "master_dir"
     break
 }
-echo "${result}"
 print project_dir
 pipeline {
     agent any
