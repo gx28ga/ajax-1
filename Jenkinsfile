@@ -4,22 +4,18 @@ remote.host = '172.18.67.7'
 remote.user = 'root'
 remote.password = 'cmcc&4321'
 remote.allowAnyHosts = true
-def project_dir
+def project_dir = match (BRANCH_NAME) {
+    when "master", "main_dir"
+    when "dev", "dev_dir"
+}
+print project_dir
 pipeline {
     agent any
 
     stages {
         stage('install') {
             steps {
-                switch (BRANCH_NAME) {
-                    case 'master':
-                        project_dir = 'master_dir'
-                        break;
-                    case 'dev':
-                        project_dir = 'dev_dir'
-                        break;
-                }
-                print project_dir
+
 
                 sh 'yarn'
                 echo "$WORKSPACE"
