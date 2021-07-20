@@ -9,7 +9,7 @@ switch(BRANCH_NAME) {
   case "dev":
     project_dir = "dev_dir"
     break
-  case "master"
+  case "master":
     project_dir = "master_dir"
     break
 }
