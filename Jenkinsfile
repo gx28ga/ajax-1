@@ -6,7 +6,7 @@ remote.password = 'cmcc&4321'
 remote.allowAnyHosts = true
 def result
 def version = "1.2"
-switch(GIT_BRANCH) {
+switch(BRANCH_NAME) {
   case "develop":
     result = "dev"
     break
