@@ -10,6 +10,12 @@ pipeline {
     stages {
         stage('install') {
             steps {
+                def project_dir = match (BRANCH_NAME) {
+                    when "master", "main_dir"
+                    when "dev", "dev_dir"
+                }
+                print project_dir
+
                 sh 'yarn'
                 echo "$WORKSPACE"
             }
