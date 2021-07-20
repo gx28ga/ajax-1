@@ -4,10 +4,23 @@ remote.host = '172.18.67.7'
 remote.user = 'root'
 remote.password = 'cmcc&4321'
 remote.allowAnyHosts = true
-def project_dir = match (BRANCH_NAME) {
-    when "master", "main_dir"
-    when "dev", "dev_dir"
+def result
+def version = "1.2"
+switch(GIT_BRANCH) {
+  case "develop":
+    result = "dev"
+    break
+  case ["master", "support/${version}".toString()]:
+    result = "list"
+    break
+  case "support/${version}":
+    result = "sup"
+    break
+  default:
+    result = "def"
+    break
 }
+echo "${result}"
 print project_dir
 pipeline {
     agent any
